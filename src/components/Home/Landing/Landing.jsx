@@ -6,6 +6,13 @@ import working from '../../../assets/images/illustration-working.svg'
 import StyledButton from '../../Button/Button'
 
 
+const LandingWrapper = styled.div`
+    margin:3rem 0 0 0rem;
+    width:100%;
+    display:grid;
+    grid-template-columns: 60% 40%
+`
+
 const LandingDiv = styled.div`
     margin: 0rem 0 0 15rem;
     width: 90%;
@@ -28,12 +35,7 @@ const WorkingImage = styled.img`
     ${'' /* float:right; */}
 `
 
-const LandingWrapper = styled.div`
-    margin:3rem 0 0 0rem;
-    width:100%;
-    display:grid;
-    grid-template-columns: 60% 40%
-`
+
 
 function Landing() {
     return (
