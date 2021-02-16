@@ -7,14 +7,15 @@ import detailedRecords from '../../../assets/images/icon-detailed-records.svg'
 import fullyCustomizable from '../../../assets/images/icon-fully-customizable.svg'
 
 const WrapperDiv = styled.div`
-    margin: -1.5em 0 0 0em;
+    margin: -4.5em 0 0 0em;
+    z-index: -2;
     color:#9e9aa7;
     background-color:#bfbfbf;
     height: 90vh;
     ${'' /* width: 80vw; */}
 `
 const HeadingWrapper = styled.div`
-    
+    padding: 7em 0 4em 0;
 `
 const CardWrapper = styled.div`
     margin: 0 0 0 15em;
