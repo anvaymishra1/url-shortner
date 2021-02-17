@@ -8,7 +8,7 @@ function Home() {
     return (
         <div>
             <Landing></Landing>
-            <UrlInput></UrlInput>
+            {/* <UrlInput></UrlInput> */}
             <AdvancedStats></AdvancedStats>
             <BoostLinks></BoostLinks>
         </div>

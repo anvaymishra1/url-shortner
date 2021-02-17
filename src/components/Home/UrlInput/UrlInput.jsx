@@ -13,7 +13,7 @@ const URLWrapper = styled.div`
     width:70%;
     margin: 4em 0 0 15em;
     height: 4em;
-    padding: 2em;
+    padding: 0em 2em 2em 2em ;
     border-radius: 0.5em;
     ${'' /* height: 5rem */}
     background:url(${(props)=>props.imgUrl}),#3b3054;
@@ -51,9 +51,9 @@ function UrlInput() {
         error: false,
         loading:false
     })
+    const [linkTile,setLinkTile] = useState([])
     let val = `https://api.shrtco.de/v2/shorten?url=${url}/very/long/link.html`
     const fetching = useRef(false)
-
     useEffect(()=>{
         setRequestStatus({
             error:false,
@@ -62,7 +62,12 @@ function UrlInput() {
         if(fetching.current){
         axios.get(val)
         .then(response => {
-        // console.log(fetching)
+        console.log(val)
+            setLinkTile(linkTile=>[...linkTile,{
+                old:url,
+                new:response.data.result.short_link,
+                copied:false,
+            }])
             setUrl(response.data.result.short_link)
             console.log(response.data,isSending)
             fetching.current = false
@@ -70,13 +75,14 @@ function UrlInput() {
                 error:false,
                 loading:false
             })
-            console.log(fetching)
-        }).catch(()=>{
+            console.log(linkTile)
+        }).catch((err)=>{
                 setRequestStatus({
                     error:true,
                     loading:false
                 })
-                console.log("error found")
+                console.log(err)
+                console.log(url)
             })
         }
     },[isSending])
@@ -103,6 +109,12 @@ function UrlInput() {
                 <br></br>
                 {requestStatus.error?<ErrorText>Re-enter a correct url</ErrorText>:<span style = {{display:false}}></span>}
         </URLWrapper>
+        <div>
+            {linkTile.map(el=> <div>{el.old}</div>)}
+        </div>
+        {/* <LinkTiles>
+            {linkTile}
+        </LinkTiles> */}
         </OuterDiv>
     )
 }
