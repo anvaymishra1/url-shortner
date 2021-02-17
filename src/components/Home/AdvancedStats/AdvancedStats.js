@@ -7,21 +7,28 @@ import detailedRecords from '../../../assets/images/icon-detailed-records.svg'
 import fullyCustomizable from '../../../assets/images/icon-fully-customizable.svg'
 
 const WrapperDiv = styled.div`
-    margin: -4.5em 0 0 0em;
+    margin: -3.5em 0 0 0em;
     z-index: -2;
     color:#9e9aa7;
     background-color:#bfbfbf;
-    height: 90vh;
+    width: 100vw;
+    padding: 0 0 5em 0;
     ${'' /* width: 80vw; */}
 `
 const HeadingWrapper = styled.div`
-    padding: 7em 0 4em 0;
+    padding: 7em 0 7em 0;
+    ${'' /* margin: 4em 0em 0em 0; */}
 `
 const CardWrapper = styled.div`
-    margin: 0 0 0 15em;
+    margin: 0 0 3em 15em;
     display: grid;
     grid-template-columns: 25% 25% 25%;
     grid-column-gap: 4em;
+    &:after{
+        content:<hr/>!important;
+        background: 20px blue;
+
+    }
 `
 const DivTitle = styled.span`
     color: #3b3054;
@@ -35,7 +42,17 @@ const Content = styled.span`
 `
 
 const Cards = styled.div`
-    ${'' /* margin: 3em; */}
+    margin: ${(props)=>{
+        if(props.card1)
+            return "0";
+        else{
+            if(props.card2)
+            return "2rem 0 -2rem 0";
+            else 
+                if(props.card3)
+                return "4rem 0 -4rem 0";
+        }
+    }}!important;
     border: 2px solid #fff;
     background-color: #fff;
     width: 100%;
@@ -78,21 +95,21 @@ function AdvancedStats() {
             <Content>Track how your links are performing accross the web with our advanced dashboard</Content>
             </HeadingWrapper>
             <CardWrapper>
-            <Cards>
+            <Cards card1>
                 <CardImage>
                 <img src = {brandRecognition} alt = "brandRecognition"></img>
                 </CardImage>
                 <CardHeading>Brand Recognition</CardHeading>
                 <CardContent>Boost your brand recognition with each click. Generate links don't mean a single thing. Branded links help instil confidence in your content.</CardContent>
             </Cards>
-            <Cards>
+            <Cards card2>
                 <CardImage>
                 <img src = {detailedRecords} alt = "detailedRecords"></img>
                 </CardImage>
                 <CardHeading>Detailed Records</CardHeading>
                 <CardContent>Boost your brand recognition with each click. Generate links don't mean a single thing. Branded links help instil confidence in your content.</CardContent>
             </Cards>
-            <Cards>
+            <Cards card3>
                 <CardImage>
                 <img src = {fullyCustomizable} alt = "fullyCustomizable"></img>
                 </CardImage>

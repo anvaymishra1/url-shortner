@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
@@ -10,7 +9,12 @@ const StyledButton = styled.button`
     margin: 1em 0em;
     font-size: 1em;
     cursor: pointer;
+    outline: none;
     width: ${props=> props.long?"10em":"7em"};
+    &:active{
+        filter:brightness(120%);
+        border:none;
+    }
 `
 
 
