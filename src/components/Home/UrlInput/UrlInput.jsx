@@ -44,6 +44,41 @@ const ErrorText = styled.span`
     color:#f46262;
 `
 
+const LinkTiles = styled.div`
+    width:74%;
+`
+const LinkTile = styled.div`
+    width:100%;
+    margin: 1em 0 0 15em;
+    background-color:#fff;
+    border-radius: 0.5em;
+    text-align:left;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+`
+
+const OldUrl = styled.span`
+    color: #35323e;
+    font-weight:700;
+    text-align:left;
+    padding:2em;
+    ${'' /* padding-left: 1em; */}
+`
+
+const NewUrl = styled.span`
+    color: #2acfcf;
+    ${'' /* position:relative; */}
+    ${'' /* right:2%; */}
+    padding:2em;
+    ${'' /* padding-left: 12em; */}
+`
+
+const CopyButton = styled(StyledButton)`
+    border-radius: 0.5em;
+    margin: 1em 1em;
+    width:80%;
+`
+
 function UrlInput() {
     const [url,setUrl] = useState('')
     const[isSending,setIsSending] = useState(false)
@@ -109,12 +144,15 @@ function UrlInput() {
                 <br></br>
                 {requestStatus.error?<ErrorText>Re-enter a correct url</ErrorText>:<span style = {{display:false}}></span>}
         </URLWrapper>
-        <div>
-            {linkTile.map(el=> <div>{el.old}</div>)}
-        </div>
-        {/* <LinkTiles>
-            {linkTile}
-        </LinkTiles> */}
+        <LinkTiles>
+        {linkTile.map(el=>( 
+            <LinkTile>
+                <OldUrl>{el.old}</OldUrl>
+                <NewUrl> {el.new}</NewUrl>
+                <CopyButton long disabled = {el.copied} >Copy</CopyButton>
+            </LinkTile>))
+            }
+        </LinkTiles>
         </OuterDiv>
     )
 }

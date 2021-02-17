@@ -69,10 +69,10 @@ const StyledCard = styled(Cards)`
         top:;  
         left:  ${(props)=>{
         if(props.card1)
-            return "17rem";
+            return "22.5rem";
         else{
             if(props.card2)
-            return "35.8rem";
+            return "46.8rem";
         }
     }}; 
         font-size: 2px;
