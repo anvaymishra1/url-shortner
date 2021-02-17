@@ -24,14 +24,22 @@ const Logo = styled.img`
 `
 
 const Heading = styled.span`
-    font-size:0.6em;
+    font-size:0.8em;
     font-weight: 700;
     display: inline-block;
+    cursor:pointer;
+    &:hover{
+        color:#2acfcf
+    }
 `
 
 const Content = styled.span`
-    font-size:0.6em;
+    font-size:0.8em;
     display: inline-block;
+    cursor:pointer;
+    &:hover{
+        color:#2acfcf
+    }
 `
 const IconTray = styled.div`
     padding: 0.5em 1em;
@@ -41,6 +49,10 @@ const IconTray = styled.div`
 
 const Icons = styled.img`
     height: 1em;
+    cursor:pointer;
+    &:hover{
+        color:#2acfcf;
+    }
 `
 
 function Footer() {

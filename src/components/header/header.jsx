@@ -24,6 +24,10 @@ const Text = styled.span`
     padding: 0em 1em;
     font-size: 0.8em;
     font-weight: 700;
+    cursor: pointer;
+    &:hover{
+        color:#232127
+    }
 `
 const Logo = styled.img`
     padding: 0em 0.5em;
